@@ -2,7 +2,11 @@
 
 iOS Live Activity notifications for Claude Code. Know when Claude needs you.
 
-![Hooky Live Activity](https://dev-do-something.vercel.app/screenshots/dynamic-island-expanded.png)
+<p align="center">
+  <img src="https://dev-do-something.vercel.app/screenshots/dynamic-island-expanded.png" width="250" />
+  <img src="https://dev-do-something.vercel.app/screenshots/live-activity-lockscreen-feed.png" width="250" />
+  <img src="https://dev-do-something.vercel.app/screenshots/dynamic-island-compact-homescreen.png" width="250" />
+</p>
 
 ## What is Hooky?
 
@@ -14,8 +18,6 @@ Hooky sends real-time updates to your iPhone when Claude Code:
 - Hits an error
 
 Updates appear on your **Lock Screen** and **Dynamic Island** via iOS Live Activities.
-
-![Lock Screen](https://dev-do-something.vercel.app/screenshots/live-activity-lockscreen-feed.png)
 
 ## Prerequisites
 
@@ -51,8 +53,6 @@ Open the Hooky iOS app and tap "Start Live Activity".
 ### 3. Use Claude Code
 
 That's it! Your iPhone will now show Live Activity updates as you use Claude Code.
-
-![Dynamic Island](https://dev-do-something.vercel.app/screenshots/dynamic-island-compact-homescreen.png)
 
 ## Commands
 
