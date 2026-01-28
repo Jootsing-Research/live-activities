@@ -1,0 +1,91 @@
+#!/bin/bash
+#
+# Hooky CLI - iOS Live Activity notifications for Claude Code
+# https://dev-do-something.vercel.app
+#
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_DIR="${HOME}/.hooky"
+CONFIG_FILE="${CONFIG_DIR}/config"
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+BOLD='\033[1m'
+
+show_help() {
+    echo ""
+    echo -e "${BLUE}${BOLD}Hooky${NC} - iOS Live Activity notifications for Claude Code"
+    echo ""
+    echo "Usage: hooky <command>"
+    echo ""
+    echo "Commands:"
+    echo "  login     Link your CLI to the Hooky iOS app"
+    echo "  logout    Unlink your CLI"
+    echo "  status    Check if you're logged in"
+    echo "  help      Show this help message"
+    echo ""
+    echo "Get started:"
+    echo "  1. Install the Hooky iOS app"
+    echo "  2. Run 'hooky login' and scan the QR code"
+    echo "  3. Start a Live Activity in the app"
+    echo "  4. Use Claude Code as normal - your iPhone will update!"
+    echo ""
+}
+
+cmd_login() {
+    "${SCRIPT_DIR}/hooky-login.sh"
+}
+
+cmd_logout() {
+    if [ -f "$CONFIG_FILE" ]; then
+        rm "$CONFIG_FILE"
+        echo -e "${GREEN}✓ Logged out successfully${NC}"
+    else
+        echo -e "${YELLOW}You're not logged in${NC}"
+    fi
+}
+
+cmd_status() {
+    if [ -f "$CONFIG_FILE" ]; then
+        source "$CONFIG_FILE"
+        if [ -n "$HOOKY_TOKEN" ]; then
+            echo -e "${GREEN}✓ Logged in${NC}"
+            if [ -n "$HOOKY_USER_ID" ]; then
+                echo -e "  User ID: ${HOOKY_USER_ID:0:8}..."
+            fi
+        else
+            echo -e "${YELLOW}Not logged in${NC}"
+            echo "  Run 'hooky login' to connect"
+        fi
+    else
+        echo -e "${YELLOW}Not logged in${NC}"
+        echo "  Run 'hooky login' to connect"
+    fi
+}
+
+# Main command handler
+case "${1:-help}" in
+    login)
+        cmd_login
+        ;;
+    logout)
+        cmd_logout
+        ;;
+    status)
+        cmd_status
+        ;;
+    help|--help|-h)
+        show_help
+        ;;
+    *)
+        echo -e "${RED}Unknown command: $1${NC}"
+        show_help
+        exit 1
+        ;;
+esac
