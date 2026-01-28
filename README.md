@@ -25,10 +25,10 @@ Updates appear on your **Lock Screen** and **Dynamic Island** via iOS Live Activ
 
 ```bash
 # Clone the plugin
-git clone https://github.com/Jootsing-Research/hooky.git ~/.claude/plugins/hooky
+git clone https://github.com/Jootsing-Research/hooky-plugin.git ~/.claude/plugins/hooky
 
 # Or download just the plugin folder
-curl -L https://github.com/Jootsing-Research/hooky/releases/latest/download/plugin.tar.gz | tar -xz -C ~/.claude/plugins/
+curl -L https://github.com/Jootsing-Research/hooky-plugin/releases/latest/download/plugin.tar.gz | tar -xz -C ~/.claude/plugins/
 ```
 
 Then enable it in your Claude Code settings:
@@ -159,7 +159,7 @@ claude
 ## Support
 
 - Website: https://dev-do-something.vercel.app
-- Issues: https://github.com/Jootsing-Research/hooky/issues
+- Issues: https://github.com/Jootsing-Research/hooky-plugin/issues
 
 ## License
 
