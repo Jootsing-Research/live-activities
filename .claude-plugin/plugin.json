@@ -2,9 +2,11 @@
   "name": "hooky",
   "version": "0.1.0",
   "description": "iOS Live Activity notifications for Claude Code. Get real-time updates on your iPhone when Claude needs your attention.",
-  "author": "Jootsing",
+  "author": {
+    "name": "Jootsing Research"
+  },
   "homepage": "https://dev-do-something.vercel.app",
   "repository": "https://github.com/Jootsing-Research/hooky-plugin",
   "keywords": ["notifications", "ios", "live-activity", "dynamic-island"],
-  "hooks": "hooks/hooks.json"
+  "hooks": "./hooks/hooks.json"
 }
