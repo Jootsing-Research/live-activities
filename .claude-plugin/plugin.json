@@ -7,6 +7,5 @@
   },
   "homepage": "https://dev-do-something.vercel.app",
   "repository": "https://github.com/Jootsing-Research/hooky-plugin",
-  "keywords": ["notifications", "ios", "live-activity", "dynamic-island"],
-  "hooks": "./hooks/hooks.json"
+  "keywords": ["notifications", "ios", "live-activity", "dynamic-island"]
 }
