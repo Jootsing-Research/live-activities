@@ -2,6 +2,8 @@
 
 iOS Live Activity notifications for Claude Code. Know when Claude needs you.
 
+![Hooky Live Activity](https://dev-do-something.vercel.app/screenshots/dynamic-island-expanded.png)
+
 ## What is Hooky?
 
 Hooky sends real-time updates to your iPhone when Claude Code:
@@ -13,6 +15,8 @@ Hooky sends real-time updates to your iPhone when Claude Code:
 
 Updates appear on your **Lock Screen** and **Dynamic Island** via iOS Live Activities.
 
+![Lock Screen](https://dev-do-something.vercel.app/screenshots/live-activity-lockscreen-feed.png)
+
 ## Prerequisites
 
 - **Hooky iOS app** - Download from the App Store
@@ -21,38 +25,11 @@ Updates appear on your **Lock Screen** and **Dynamic Island** via iOS Live Activ
 
 ## Installation
 
-### Option 1: Install as Claude Code Plugin (Recommended)
+Install from the Claude Code plugin marketplace:
 
-```bash
-# Clone the plugin
-git clone https://github.com/Jootsing-Research/hooky-plugin.git ~/.claude/plugins/hooky
-
-# Or download just the plugin folder
-curl -L https://github.com/Jootsing-Research/hooky-plugin/releases/latest/download/plugin.tar.gz | tar -xz -C ~/.claude/plugins/
 ```
-
-Then enable it in your Claude Code settings:
-
-```bash
-claude
-/plugin enable hooky
-```
-
-### Option 2: Manual Hook Configuration
-
-Add to your `~/.claude/settings.json`:
-
-```json
-{
-  "hooks": {
-    "SessionStart": [{ "hooks": [{ "type": "command", "command": "~/.hooky/hooky.sh SessionStart" }] }],
-    "PreToolUse": [{ "matcher": "*", "hooks": [{ "type": "command", "command": "~/.hooky/hooky.sh PreToolUse" }] }],
-    "PostToolUse": [{ "matcher": "*", "hooks": [{ "type": "command", "command": "~/.hooky/hooky.sh PostToolUse" }] }],
-    "Stop": [{ "hooks": [{ "type": "command", "command": "~/.hooky/hooky.sh Stop" }] }],
-    "Notification": [{ "matcher": "*", "hooks": [{ "type": "command", "command": "~/.hooky/hooky.sh Notification" }] }],
-    "SessionEnd": [{ "hooks": [{ "type": "command", "command": "~/.hooky/hooky.sh SessionEnd" }] }]
-  }
-}
+/plugin marketplace add Jootsing-Research/hooky-plugin
+/plugin install hooky
 ```
 
 ## Setup
@@ -65,7 +42,7 @@ In Claude Code, run:
 /hooky:login
 ```
 
-This will display a QR code. Scan it with the Hooky iOS app.
+This will display a code. Enter it in the Hooky iOS app to link your device.
 
 ### 2. Start a Live Activity
 
@@ -75,11 +52,13 @@ Open the Hooky iOS app and tap "Start Live Activity".
 
 That's it! Your iPhone will now show Live Activity updates as you use Claude Code.
 
+![Dynamic Island](https://dev-do-something.vercel.app/screenshots/dynamic-island-compact-homescreen.png)
+
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `/hooky:login` | Link your CLI to the iOS app (shows QR code) |
+| `/hooky:login` | Link your CLI to the iOS app |
 | `/hooky:logout` | Unlink your CLI |
 | `/hooky:status` | Check if you're logged in |
 
@@ -123,18 +102,6 @@ HOOKY_USER_ID="your-user-id"
 3. Verify you're logged in: `/hooky:status`
 4. Check that hooks are registered: `/hooks` in Claude Code
 
-### QR code not scanning?
-
-Make sure you're using the Hooky iOS app (not your camera app).
-
-### Permission errors?
-
-Make sure the scripts are executable:
-
-```bash
-chmod +x ~/.claude/plugins/hooky/scripts/*.sh
-```
-
 ## Privacy & Security
 
 - Auth tokens are stored locally in `~/.hooky/config`
@@ -144,16 +111,15 @@ chmod +x ~/.claude/plugins/hooky/scripts/*.sh
 
 ## Uninstallation
 
+```
+/plugin uninstall hooky
+/plugin marketplace remove hooky
+```
+
+To also remove local config:
+
 ```bash
-# Remove plugin
-rm -rf ~/.claude/plugins/hooky
-
-# Remove config
 rm -rf ~/.hooky
-
-# Disable in Claude Code
-claude
-/plugin disable hooky
 ```
 
 ## Support
