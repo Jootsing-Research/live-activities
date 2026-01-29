@@ -30,8 +30,8 @@ Updates appear on your **Lock Screen** and **Dynamic Island** via iOS Live Activ
 Install from the Claude Code plugin marketplace:
 
 ```
-/plugin marketplace add Jootsing-Research/hooky-plugin
-/plugin install hooky
+/plugin marketplace add jootsing-research/live-activities
+/plugin install liveactivities
 ```
 
 ## Setup
@@ -41,7 +41,7 @@ Install from the Claude Code plugin marketplace:
 In Claude Code, run:
 
 ```
-/hooky:login
+/liveactivities:login
 ```
 
 This will display a code. Enter it in the Hooky iOS app to link your device.
@@ -58,11 +58,11 @@ That's it! Your iPhone will now show Live Activity updates as you use Claude Cod
 
 | Command | Description |
 |---------|-------------|
-| `/hooky:login` | Link your CLI to the iOS app |
-| `/hooky:logout` | Unlink your CLI |
-| `/hooky:status` | Check if you're logged in and enabled/disabled |
-| `/hooky:enable` | Enable sending hooks to your iOS device |
-| `/hooky:disable` | Disable sending hooks (stays logged in) |
+| `/liveactivities:login` | Link your CLI to the iOS app |
+| `/liveactivities:logout` | Unlink your CLI |
+| `/liveactivities:status` | Check if you're logged in and enabled/disabled |
+| `/liveactivities:enable` | Enable sending hooks to your iOS device |
+| `/liveactivities:disable` | Disable sending hooks (stays logged in) |
 
 ### Enabling/Disabling Hooks
 
@@ -72,8 +72,8 @@ You can temporarily disable Hooky without logging out. This is useful when:
 - Pausing notifications temporarily
 
 ```
-/hooky:disable   # Stop sending hooks
-/hooky:enable    # Resume sending hooks
+/liveactivities:disable   # Stop sending hooks
+/liveactivities:enable    # Resume sending hooks
 ```
 
 You'll stay logged in, so you can quickly re-enable without scanning the QR code again.
@@ -118,7 +118,7 @@ When `HOOKY_ENABLED` is not set, it defaults to `true` (enabled).
 
 1. Make sure you've started a Live Activity in the iOS app
 2. Check that Live Activities are enabled in iOS Settings
-3. Verify you're logged in: `/hooky:status`
+3. Verify you're logged in: `/liveactivities:status`
 4. Check that hooks are registered: `/hooks` in Claude Code
 
 ## Privacy & Security
@@ -126,13 +126,13 @@ When `HOOKY_ENABLED` is not set, it defaults to `true` (enabled).
 - Auth tokens are stored locally in `~/.hooky/config`
 - Only hook metadata is sent to the server (no file contents)
 - All communication is over HTTPS
-- You can revoke access anytime with `/hooky:logout`
+- You can revoke access anytime with `/liveactivities:logout`
 
 ## Uninstallation
 
 ```
-/plugin uninstall hooky
-/plugin marketplace remove hooky
+/plugin uninstall liveactivities
+/plugin marketplace remove liveactivities
 ```
 
 To also remove local config:
@@ -144,7 +144,7 @@ rm -rf ~/.hooky
 ## Support
 
 - Website: https://liveactivities.ai
-- Issues: https://github.com/Jootsing-Research/hooky-plugin/issues
+- Issues: https://github.com/jootsing-research/live-activities/issues
 
 ## License
 

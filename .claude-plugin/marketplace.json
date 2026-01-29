@@ -1,14 +1,14 @@
 {
-  "name": "hooky",
+  "name": "liveactivities",
   "owner": {
     "name": "Jootsing Research"
   },
   "metadata": {
-    "description": "Hooky - iOS Live Activity notifications for Claude Code"
+    "description": "iOS Live Activity notifications for Claude Code"
   },
   "plugins": [
     {
-      "name": "hooky",
+      "name": "liveactivities",
       "description": "iOS Live Activity notifications for Claude Code. Get real-time updates on your iPhone when Claude needs your attention.",
       "source": "./"
     }
