@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Hooky - iOS Live Activity notifications for Claude Code
+# Live Activities - iOS Live Activity notifications for Claude Code
 # https://liveactivities.ai
 #
 

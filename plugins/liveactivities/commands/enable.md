@@ -1,8 +1,8 @@
 ---
-description: Enable Hooky hooks (start sending to iOS)
+description: Enable Live Activities hooks (start sending to iOS)
 ---
 
-Enable Hooky to send hooks to your iOS device.
+Enable Live Activities to send hooks to your iOS device.
 
 Execute this command:
 
@@ -10,7 +10,7 @@ Execute this command:
 CONFIG_FILE="${HOME}/.liveactivities/config"
 
 if [ ! -f "$CONFIG_FILE" ]; then
-  echo "Hooky: Not logged in"
+  echo "Live Activities: Not logged in"
   echo "Run /liveactivities:login first"
   exit 1
 fi
@@ -22,6 +22,6 @@ else
   echo 'LIVEACTIVITIES_ENABLED="true"' >> "$CONFIG_FILE"
 fi
 
-echo "Hooky: Enabled"
+echo "Live Activities: Enabled"
 echo "Hooks will be sent to your iOS device"
 ```

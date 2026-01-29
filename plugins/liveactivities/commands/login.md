@@ -1,8 +1,8 @@
 ---
-description: Link your CLI to the Hooky iOS app for Live Activity notifications
+description: Link your CLI to the Live Activities iOS app
 ---
 
-Run the Hooky login script to link this CLI to your iPhone. This will display a QR code that you scan with the Hooky iOS app.
+Run the Live Activities login script to link this CLI to your iPhone. This will display a QR code that you scan with the Live Activities iOS app.
 
 Execute this command:
 
@@ -11,7 +11,7 @@ Execute this command:
 ```
 
 After running, tell the user to:
-1. Open the Hooky iOS app
+1. Open the Live Activities iOS app
 2. Scan the QR code (or enter the code manually)
 3. Wait for confirmation
 

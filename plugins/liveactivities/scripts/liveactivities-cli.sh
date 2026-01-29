@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Hooky CLI - iOS Live Activity notifications for Claude Code
+# Live Activities CLI - iOS Live Activity notifications for Claude Code
 # https://liveactivities.ai
 #
 
@@ -20,20 +20,20 @@ BOLD='\033[1m'
 
 show_help() {
     echo ""
-    echo -e "${BLUE}${BOLD}Hooky${NC} - iOS Live Activity notifications for Claude Code"
+    echo -e "${BLUE}${BOLD}Live Activities${NC} - iOS Live Activity notifications for Claude Code"
     echo ""
     echo "Usage: liveactivities <command>"
     echo ""
     echo "Commands:"
-    echo "  login     Link your CLI to the Hooky iOS app"
+    echo "  login     Link your CLI to the Live Activities iOS app"
     echo "  logout    Unlink your CLI"
     echo "  status    Check if you're logged in"
-    echo "  enable    Enable sending hooks to Hooky"
+    echo "  enable    Enable sending hooks to Live Activities"
     echo "  disable   Disable sending hooks (stays logged in)"
     echo "  help      Show this help message"
     echo ""
     echo "Get started:"
-    echo "  1. Install the Hooky iOS app"
+    echo "  1. Install the Live Activities iOS app"
     echo "  2. Run 'liveactivities login' and scan the QR code"
     echo "  3. Start a Live Activity in the app"
     echo "  4. Use Claude Code as normal - your iPhone will update!"
@@ -93,7 +93,7 @@ cmd_enable() {
         echo 'LIVEACTIVITIES_ENABLED="true"' >> "$CONFIG_FILE"
     fi
 
-    echo -e "${GREEN}✓ Hooky enabled${NC}"
+    echo -e "${GREEN}✓ Live Activities enabled${NC}"
     echo "  Hooks will be sent to your iOS device"
 }
 
@@ -113,7 +113,7 @@ cmd_disable() {
         echo 'LIVEACTIVITIES_ENABLED="false"' >> "$CONFIG_FILE"
     fi
 
-    echo -e "${YELLOW}⏸ Hooky disabled${NC}"
+    echo -e "${YELLOW}⏸ Live Activities disabled${NC}"
     echo "  Hooks will NOT be sent (still logged in)"
 }
 

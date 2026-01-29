@@ -1,11 +1,5 @@
 {
-  "name": "liveactivities",
-  "version": "0.1.0",
-  "description": "iOS Live Activity notifications for Claude Code. Get real-time updates on your iPhone when Claude needs your attention.",
-  "author": {
-    "name": "Jootsing Research"
-  },
-  "homepage": "https://liveactivities.ai",
-  "repository": "https://github.com/Jootsing-Research/live-activities",
-  "keywords": ["notifications", "ios", "live-activity", "dynamic-island"]
+  "name": "jootsing-plugins",
+  "version": "1.0.0",
+  "description": "Claude Code plugins by Jootsing Research"
 }

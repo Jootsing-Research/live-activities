@@ -1,5 +1,5 @@
 {
-    "description": "Hooky - iOS Live Activity notifications for Claude Code",
+    "description": "Live Activities - iOS Live Activity notifications for Claude Code",
     "hooks": {
         "SessionStart": [
             {

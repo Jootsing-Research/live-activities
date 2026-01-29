@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# Hooky Login - Link your CLI to your Hooky iOS app
+# Live Activities Login - Link your CLI to your Live Activities iOS app
 # https://liveactivities.ai
 #
-# This script creates a link request that you scan with the Hooky iOS app.
+# This script creates a link request that you scan with the Live Activities iOS app.
 #
 
 set -e
@@ -22,7 +22,7 @@ BOLD='\033[1m'
 
 echo ""
 echo -e "${BLUE}${BOLD}  ╭─────────────────────────────────────╮${NC}"
-echo -e "${BLUE}${BOLD}  │           🪝 Hooky Login            │${NC}"
+echo -e "${BLUE}${BOLD}  │       📱 Live Activities Login      │${NC}"
 echo -e "${BLUE}${BOLD}  │   iOS Live Activity for Claude Code │${NC}"
 echo -e "${BLUE}${BOLD}  ╰─────────────────────────────────────╯${NC}"
 echo ""
@@ -80,7 +80,7 @@ if [ -z "$TOKEN" ] || [ -z "$CODE" ]; then
     exit 1
 fi
 
-echo -e "${BOLD}Scan this QR code with the Hooky iOS app:${NC}"
+echo -e "${BOLD}Scan this QR code with the Live Activities iOS app:${NC}"
 echo ""
 
 # Try to display QR code in terminal
@@ -95,18 +95,18 @@ try:
     qr.add_data('$QR_DATA')
     qr.print_ascii(invert=True)
 except ImportError:
-    print('Open the Hooky iOS app and scan or enter code manually')
+    print('Open the Live Activities iOS app and scan or enter code manually')
 " 2>/dev/null || {
-    echo -e "Open the Hooky iOS app and scan or enter code manually"
+    echo -e "Open the Live Activities iOS app and scan or enter code manually"
 }
 else
-    echo -e "Open the Hooky iOS app and enter the code manually"
+    echo -e "Open the Live Activities iOS app and enter the code manually"
 fi
 
 echo ""
 echo -e "${BOLD}Verification code: ${GREEN}${CODE}${NC}"
 echo ""
-echo -e "${YELLOW}Waiting for you to scan with the Hooky app...${NC}"
+echo -e "${YELLOW}Waiting for you to scan with the Live Activities app...${NC}"
 echo -e "(Press Ctrl+C to cancel)"
 echo ""
 
@@ -133,7 +133,7 @@ while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
             echo -e "${GREEN}${BOLD}✓ Successfully linked!${NC}"
             echo ""
             echo -e "Your Claude Code sessions will now update your iPhone's Live Activity."
-            echo -e "Make sure to start a Live Activity in the Hooky app first."
+            echo -e "Make sure to start a Live Activity in the app first."
             echo ""
             exit 0
         else

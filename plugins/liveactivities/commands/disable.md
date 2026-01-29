@@ -1,8 +1,8 @@
 ---
-description: Disable Hooky hooks (stop sending to iOS)
+description: Disable Live Activities hooks (stop sending to iOS)
 ---
 
-Disable Hooky to stop sending hooks to your iOS device. You'll stay logged in.
+Disable Live Activities to stop sending hooks to your iOS device. You'll stay logged in.
 
 Execute this command:
 
@@ -10,7 +10,7 @@ Execute this command:
 CONFIG_FILE="${HOME}/.liveactivities/config"
 
 if [ ! -f "$CONFIG_FILE" ]; then
-  echo "Hooky: Not logged in"
+  echo "Live Activities: Not logged in"
   echo "Nothing to disable"
   exit 0
 fi
@@ -22,7 +22,7 @@ else
   echo 'LIVEACTIVITIES_ENABLED="false"' >> "$CONFIG_FILE"
 fi
 
-echo "Hooky: Disabled"
+echo "Live Activities: Disabled"
 echo "Hooks will NOT be sent (still logged in)"
 echo "Run /liveactivities:enable to turn back on"
 ```

@@ -1,16 +1,19 @@
 {
-  "name": "liveactivities",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "jootsing-plugins",
+  "description": "Claude Code plugins by Jootsing Research",
   "owner": {
     "name": "Jootsing Research"
-  },
-  "metadata": {
-    "description": "iOS Live Activity notifications for Claude Code"
   },
   "plugins": [
     {
       "name": "liveactivities",
       "description": "iOS Live Activity notifications for Claude Code. Get real-time updates on your iPhone when Claude needs your attention.",
-      "source": "./"
+      "version": "0.2.0",
+      "author": { "name": "Jootsing Research" },
+      "source": "./plugins/liveactivities",
+      "category": "notifications",
+      "homepage": "https://liveactivities.ai"
     }
   ]
 }
