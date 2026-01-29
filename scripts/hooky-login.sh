@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Hooky Login - Link your CLI to your Hooky iOS app
-# https://dev-do-something.vercel.app
+# https://liveactivities.ai
 #
 # This script creates a link request that you scan with the Hooky iOS app.
 #
@@ -10,7 +10,7 @@ set -e
 
 CONFIG_DIR="${HOME}/.hooky"
 CONFIG_FILE="${CONFIG_DIR}/config"
-SERVER_URL="${HOOKY_SERVER_URL:-https://dev-do-something.vercel.app}"
+SERVER_URL="${HOOKY_SERVER_URL:-https://liveactivities.ai}"
 
 # Colors for output
 RED='\033[0;31m'

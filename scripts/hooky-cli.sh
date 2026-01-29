@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Hooky CLI - iOS Live Activity notifications for Claude Code
-# https://dev-do-something.vercel.app
+# https://liveactivities.ai
 #
 
 set -e
@@ -28,6 +28,8 @@ show_help() {
     echo "  login     Link your CLI to the Hooky iOS app"
     echo "  logout    Unlink your CLI"
     echo "  status    Check if you're logged in"
+    echo "  enable    Enable sending hooks to Hooky"
+    echo "  disable   Disable sending hooks (stays logged in)"
     echo "  help      Show this help message"
     echo ""
     echo "Get started:"
@@ -59,6 +61,12 @@ cmd_status() {
             if [ -n "$HOOKY_USER_ID" ]; then
                 echo -e "  User ID: ${HOOKY_USER_ID:0:8}..."
             fi
+            # Show enabled/disabled status (default is enabled)
+            if [ "${HOOKY_ENABLED:-true}" = "true" ]; then
+                echo -e "  Status: ${GREEN}enabled${NC}"
+            else
+                echo -e "  Status: ${YELLOW}disabled${NC}"
+            fi
         else
             echo -e "${YELLOW}Not logged in${NC}"
             echo "  Run 'hooky login' to connect"
@@ -67,6 +75,46 @@ cmd_status() {
         echo -e "${YELLOW}Not logged in${NC}"
         echo "  Run 'hooky login' to connect"
     fi
+}
+
+cmd_enable() {
+    if [ ! -f "$CONFIG_FILE" ]; then
+        echo -e "${YELLOW}Not logged in${NC}"
+        echo "  Run 'hooky login' first"
+        exit 1
+    fi
+
+    # Update the config file - set HOOKY_ENABLED=true
+    if grep -q "^HOOKY_ENABLED=" "$CONFIG_FILE" 2>/dev/null; then
+        # Replace existing value
+        sed -i '' 's/^HOOKY_ENABLED=.*/HOOKY_ENABLED="true"/' "$CONFIG_FILE"
+    else
+        # Add new line
+        echo 'HOOKY_ENABLED="true"' >> "$CONFIG_FILE"
+    fi
+
+    echo -e "${GREEN}✓ Hooky enabled${NC}"
+    echo "  Hooks will be sent to your iOS device"
+}
+
+cmd_disable() {
+    if [ ! -f "$CONFIG_FILE" ]; then
+        echo -e "${YELLOW}Not logged in${NC}"
+        echo "  Run 'hooky login' first"
+        exit 1
+    fi
+
+    # Update the config file - set HOOKY_ENABLED=false
+    if grep -q "^HOOKY_ENABLED=" "$CONFIG_FILE" 2>/dev/null; then
+        # Replace existing value
+        sed -i '' 's/^HOOKY_ENABLED=.*/HOOKY_ENABLED="false"/' "$CONFIG_FILE"
+    else
+        # Add new line
+        echo 'HOOKY_ENABLED="false"' >> "$CONFIG_FILE"
+    fi
+
+    echo -e "${YELLOW}⏸ Hooky disabled${NC}"
+    echo "  Hooks will NOT be sent (still logged in)"
 }
 
 # Main command handler
@@ -79,6 +127,12 @@ case "${1:-help}" in
         ;;
     status)
         cmd_status
+        ;;
+    enable|on)
+        cmd_enable
+        ;;
+    disable|off)
+        cmd_disable
         ;;
     help|--help|-h)
         show_help

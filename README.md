@@ -3,9 +3,9 @@
 iOS Live Activity notifications for Claude Code. Know when Claude needs you.
 
 <p align="center">
-  <img src="https://dev-do-something.vercel.app/screenshots/dynamic-island-expanded.png" width="250" />
-  <img src="https://dev-do-something.vercel.app/screenshots/live-activity-lockscreen-feed.png" width="250" />
-  <img src="https://dev-do-something.vercel.app/screenshots/dynamic-island-compact-homescreen.png" width="250" />
+  <img src="https://liveactivities.ai/screenshots/dynamic-island-expanded.png" width="250" />
+  <img src="https://liveactivities.ai/screenshots/live-activity-lockscreen-feed.png" width="250" />
+  <img src="https://liveactivities.ai/screenshots/dynamic-island-compact-homescreen.png" width="250" />
 </p>
 
 ## What is Hooky?
@@ -60,7 +60,23 @@ That's it! Your iPhone will now show Live Activity updates as you use Claude Cod
 |---------|-------------|
 | `/hooky:login` | Link your CLI to the iOS app |
 | `/hooky:logout` | Unlink your CLI |
-| `/hooky:status` | Check if you're logged in |
+| `/hooky:status` | Check if you're logged in and enabled/disabled |
+| `/hooky:enable` | Enable sending hooks to your iOS device |
+| `/hooky:disable` | Disable sending hooks (stays logged in) |
+
+### Enabling/Disabling Hooks
+
+You can temporarily disable Hooky without logging out. This is useful when:
+- Working on multiple repos but only want notifications for some
+- Testing or debugging without constant notifications
+- Pausing notifications temporarily
+
+```
+/hooky:disable   # Stop sending hooks
+/hooky:enable    # Resume sending hooks
+```
+
+You'll stay logged in, so you can quickly re-enable without scanning the QR code again.
 
 ## How It Works
 
@@ -82,16 +98,19 @@ That's it! Your iPhone will now show Live Activity updates as you use Claude Cod
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `HOOKY_SERVER_URL` | Server URL | `https://dev-do-something.vercel.app` |
+| `HOOKY_SERVER_URL` | Server URL | `https://liveactivities.ai` |
 
 ### Config File
 
-Credentials are stored in `~/.hooky/config`:
+Credentials and settings are stored in `~/.hooky/config`:
 
 ```bash
 HOOKY_TOKEN="your-auth-token"
 HOOKY_USER_ID="your-user-id"
+HOOKY_ENABLED="true"  # or "false" to disable
 ```
+
+When `HOOKY_ENABLED` is not set, it defaults to `true` (enabled).
 
 ## Troubleshooting
 
@@ -124,7 +143,7 @@ rm -rf ~/.hooky
 
 ## Support
 
-- Website: https://dev-do-something.vercel.app
+- Website: https://liveactivities.ai
 - Issues: https://github.com/Jootsing-Research/hooky-plugin/issues
 
 ## License
