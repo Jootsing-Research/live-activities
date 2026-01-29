@@ -8,9 +8,9 @@
 
 set -e
 
-CONFIG_DIR="${HOME}/.hooky"
+CONFIG_DIR="${HOME}/.liveactivities"
 CONFIG_FILE="${CONFIG_DIR}/config"
-SERVER_URL="${HOOKY_SERVER_URL:-https://liveactivities.ai}"
+SERVER_URL="${LIVEACTIVITIES_SERVER_URL:-https://liveactivities.ai}"
 
 # Colors for output
 RED='\033[0;31m'
@@ -30,7 +30,7 @@ echo ""
 # Check if already logged in
 if [ -f "$CONFIG_FILE" ]; then
     source "$CONFIG_FILE"
-    if [ -n "$HOOKY_TOKEN" ]; then
+    if [ -n "$LIVEACTIVITIES_TOKEN" ]; then
         echo -e "${YELLOW}You're already logged in.${NC}"
         echo ""
         read -p "Do you want to re-authenticate? (y/N) " -n 1 -r
@@ -125,8 +125,8 @@ while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
 
         if [ -n "$AUTH_TOKEN" ]; then
             # Save to config
-            echo "HOOKY_TOKEN=\"${AUTH_TOKEN}\"" > "$CONFIG_FILE"
-            echo "HOOKY_USER_ID=\"${USER_ID}\"" >> "$CONFIG_FILE"
+            echo "LIVEACTIVITIES_TOKEN=\"${AUTH_TOKEN}\"" > "$CONFIG_FILE"
+            echo "LIVEACTIVITIES_USER_ID=\"${USER_ID}\"" >> "$CONFIG_FILE"
             chmod 600 "$CONFIG_FILE"
 
             echo ""

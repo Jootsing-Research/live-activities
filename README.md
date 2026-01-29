@@ -98,19 +98,19 @@ You'll stay logged in, so you can quickly re-enable without scanning the QR code
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `HOOKY_SERVER_URL` | Server URL | `https://liveactivities.ai` |
+| `LIVEACTIVITIES_SERVER_URL` | Server URL | `https://liveactivities.ai` |
 
 ### Config File
 
-Credentials and settings are stored in `~/.hooky/config`:
+Credentials and settings are stored in `~/.liveactivities/config`:
 
 ```bash
-HOOKY_TOKEN="your-auth-token"
-HOOKY_USER_ID="your-user-id"
-HOOKY_ENABLED="true"  # or "false" to disable
+LIVEACTIVITIES_TOKEN="your-auth-token"
+LIVEACTIVITIES_USER_ID="your-user-id"
+LIVEACTIVITIES_ENABLED="true"  # or "false" to disable
 ```
 
-When `HOOKY_ENABLED` is not set, it defaults to `true` (enabled).
+When `LIVEACTIVITIES_ENABLED` is not set, it defaults to `true` (enabled).
 
 ## Troubleshooting
 
@@ -123,7 +123,7 @@ When `HOOKY_ENABLED` is not set, it defaults to `true` (enabled).
 
 ## Privacy & Security
 
-- Auth tokens are stored locally in `~/.hooky/config`
+- Auth tokens are stored locally in `~/.liveactivities/config`
 - Only hook metadata is sent to the server (no file contents)
 - All communication is over HTTPS
 - You can revoke access anytime with `/liveactivities:logout`
@@ -138,7 +138,7 @@ When `HOOKY_ENABLED` is not set, it defaults to `true` (enabled).
 To also remove local config:
 
 ```bash
-rm -rf ~/.hooky
+rm -rf ~/.liveactivities
 ```
 
 ## Support

@@ -7,7 +7,7 @@ Disable Hooky to stop sending hooks to your iOS device. You'll stay logged in.
 Execute this command:
 
 ```bash
-CONFIG_FILE="${HOME}/.hooky/config"
+CONFIG_FILE="${HOME}/.liveactivities/config"
 
 if [ ! -f "$CONFIG_FILE" ]; then
   echo "Hooky: Not logged in"
@@ -15,14 +15,14 @@ if [ ! -f "$CONFIG_FILE" ]; then
   exit 0
 fi
 
-# Update the config file - set HOOKY_ENABLED=false
-if grep -q "^HOOKY_ENABLED=" "$CONFIG_FILE" 2>/dev/null; then
-  sed -i '' 's/^HOOKY_ENABLED=.*/HOOKY_ENABLED="false"/' "$CONFIG_FILE"
+# Update the config file - set LIVEACTIVITIES_ENABLED=false
+if grep -q "^LIVEACTIVITIES_ENABLED=" "$CONFIG_FILE" 2>/dev/null; then
+  sed -i '' 's/^LIVEACTIVITIES_ENABLED=.*/LIVEACTIVITIES_ENABLED="false"/' "$CONFIG_FILE"
 else
-  echo 'HOOKY_ENABLED="false"' >> "$CONFIG_FILE"
+  echo 'LIVEACTIVITIES_ENABLED="false"' >> "$CONFIG_FILE"
 fi
 
 echo "Hooky: Disabled"
 echo "Hooks will NOT be sent (still logged in)"
-echo "Run /hooky:enable to turn back on"
+echo "Run /liveactivities:enable to turn back on"
 ```

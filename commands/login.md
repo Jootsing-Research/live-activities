@@ -7,7 +7,7 @@ Run the Hooky login script to link this CLI to your iPhone. This will display a 
 Execute this command:
 
 ```bash
-"${CLAUDE_PLUGIN_ROOT}/scripts/hooky-login.sh"
+"${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities-login.sh"
 ```
 
 After running, tell the user to:

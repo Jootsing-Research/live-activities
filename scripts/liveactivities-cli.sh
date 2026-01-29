@@ -7,7 +7,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG_DIR="${HOME}/.hooky"
+CONFIG_DIR="${HOME}/.liveactivities"
 CONFIG_FILE="${CONFIG_DIR}/config"
 
 # Colors
@@ -22,7 +22,7 @@ show_help() {
     echo ""
     echo -e "${BLUE}${BOLD}Hooky${NC} - iOS Live Activity notifications for Claude Code"
     echo ""
-    echo "Usage: hooky <command>"
+    echo "Usage: liveactivities <command>"
     echo ""
     echo "Commands:"
     echo "  login     Link your CLI to the Hooky iOS app"
@@ -34,14 +34,14 @@ show_help() {
     echo ""
     echo "Get started:"
     echo "  1. Install the Hooky iOS app"
-    echo "  2. Run 'hooky login' and scan the QR code"
+    echo "  2. Run 'liveactivities login' and scan the QR code"
     echo "  3. Start a Live Activity in the app"
     echo "  4. Use Claude Code as normal - your iPhone will update!"
     echo ""
 }
 
 cmd_login() {
-    "${SCRIPT_DIR}/hooky-login.sh"
+    "${SCRIPT_DIR}/liveactivities-login.sh"
 }
 
 cmd_logout() {
@@ -56,41 +56,41 @@ cmd_logout() {
 cmd_status() {
     if [ -f "$CONFIG_FILE" ]; then
         source "$CONFIG_FILE"
-        if [ -n "$HOOKY_TOKEN" ]; then
+        if [ -n "$LIVEACTIVITIES_TOKEN" ]; then
             echo -e "${GREEN}✓ Logged in${NC}"
-            if [ -n "$HOOKY_USER_ID" ]; then
-                echo -e "  User ID: ${HOOKY_USER_ID:0:8}..."
+            if [ -n "$LIVEACTIVITIES_USER_ID" ]; then
+                echo -e "  User ID: ${LIVEACTIVITIES_USER_ID:0:8}..."
             fi
             # Show enabled/disabled status (default is enabled)
-            if [ "${HOOKY_ENABLED:-true}" = "true" ]; then
+            if [ "${LIVEACTIVITIES_ENABLED:-true}" = "true" ]; then
                 echo -e "  Status: ${GREEN}enabled${NC}"
             else
                 echo -e "  Status: ${YELLOW}disabled${NC}"
             fi
         else
             echo -e "${YELLOW}Not logged in${NC}"
-            echo "  Run 'hooky login' to connect"
+            echo "  Run 'liveactivities login' to connect"
         fi
     else
         echo -e "${YELLOW}Not logged in${NC}"
-        echo "  Run 'hooky login' to connect"
+        echo "  Run 'liveactivities login' to connect"
     fi
 }
 
 cmd_enable() {
     if [ ! -f "$CONFIG_FILE" ]; then
         echo -e "${YELLOW}Not logged in${NC}"
-        echo "  Run 'hooky login' first"
+        echo "  Run 'liveactivities login' first"
         exit 1
     fi
 
-    # Update the config file - set HOOKY_ENABLED=true
-    if grep -q "^HOOKY_ENABLED=" "$CONFIG_FILE" 2>/dev/null; then
+    # Update the config file - set LIVEACTIVITIES_ENABLED=true
+    if grep -q "^LIVEACTIVITIES_ENABLED=" "$CONFIG_FILE" 2>/dev/null; then
         # Replace existing value
-        sed -i '' 's/^HOOKY_ENABLED=.*/HOOKY_ENABLED="true"/' "$CONFIG_FILE"
+        sed -i '' 's/^LIVEACTIVITIES_ENABLED=.*/LIVEACTIVITIES_ENABLED="true"/' "$CONFIG_FILE"
     else
         # Add new line
-        echo 'HOOKY_ENABLED="true"' >> "$CONFIG_FILE"
+        echo 'LIVEACTIVITIES_ENABLED="true"' >> "$CONFIG_FILE"
     fi
 
     echo -e "${GREEN}✓ Hooky enabled${NC}"
@@ -100,17 +100,17 @@ cmd_enable() {
 cmd_disable() {
     if [ ! -f "$CONFIG_FILE" ]; then
         echo -e "${YELLOW}Not logged in${NC}"
-        echo "  Run 'hooky login' first"
+        echo "  Run 'liveactivities login' first"
         exit 1
     fi
 
-    # Update the config file - set HOOKY_ENABLED=false
-    if grep -q "^HOOKY_ENABLED=" "$CONFIG_FILE" 2>/dev/null; then
+    # Update the config file - set LIVEACTIVITIES_ENABLED=false
+    if grep -q "^LIVEACTIVITIES_ENABLED=" "$CONFIG_FILE" 2>/dev/null; then
         # Replace existing value
-        sed -i '' 's/^HOOKY_ENABLED=.*/HOOKY_ENABLED="false"/' "$CONFIG_FILE"
+        sed -i '' 's/^LIVEACTIVITIES_ENABLED=.*/LIVEACTIVITIES_ENABLED="false"/' "$CONFIG_FILE"
     else
         # Add new line
-        echo 'HOOKY_ENABLED="false"' >> "$CONFIG_FILE"
+        echo 'LIVEACTIVITIES_ENABLED="false"' >> "$CONFIG_FILE"
     fi
 
     echo -e "${YELLOW}⏸ Hooky disabled${NC}"

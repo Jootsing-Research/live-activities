@@ -1,11 +1,11 @@
 ---
-description: Unlink your CLI from the Hooky iOS app
+description: Unlink your CLI from the Live Activities iOS app
 ---
 
-Run the Hooky logout command to unlink this CLI from your iPhone.
+Run the Live Activities logout command to unlink this CLI from your iPhone.
 
 Execute this command:
 
 ```bash
-rm -f "${HOME}/.hooky/config" && echo "Successfully logged out of Hooky"
+rm -f "${HOME}/.liveactivities/config" && echo "Successfully logged out of Live Activities"
 ```

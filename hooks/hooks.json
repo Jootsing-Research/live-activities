@@ -6,7 +6,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh SessionStart",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh SessionStart",
                         "async": true,
                         "timeout": 20
                     }
@@ -19,7 +19,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh PreToolUse",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh PreToolUse",
                         "async": true,
                         "timeout": 20
                     }
@@ -32,7 +32,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh PostToolUse",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh PostToolUse",
                         "async": true,
                         "timeout": 20
                     }
@@ -45,7 +45,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh PostToolUseFailure",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh PostToolUseFailure",
                         "async": true,
                         "timeout": 20
                     }
@@ -57,7 +57,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh Stop",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh Stop",
                         "async": true,
                         "timeout": 20
                     }
@@ -70,7 +70,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh Notification",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh Notification",
                         "async": true,
                         "timeout": 20
                     }
@@ -82,7 +82,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh SubagentStart",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh SubagentStart",
                         "async": true,
                         "timeout": 20
                     }
@@ -94,7 +94,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh SubagentStop",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh SubagentStop",
                         "async": true,
                         "timeout": 20
                     }
@@ -107,7 +107,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh PreCompact",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh PreCompact",
                         "async": true,
                         "timeout": 20
                     }
@@ -119,7 +119,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/hooky.sh SessionEnd",
+                        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/liveactivities.sh SessionEnd",
                         "async": true,
                         "timeout": 20
                     }

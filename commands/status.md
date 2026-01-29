@@ -7,24 +7,24 @@ Check the Hooky login status by looking for the config file.
 Execute this command:
 
 ```bash
-if [ -f "${HOME}/.hooky/config" ]; then
-  source "${HOME}/.hooky/config"
-  if [ -n "$HOOKY_TOKEN" ]; then
+if [ -f "${HOME}/.liveactivities/config" ]; then
+  source "${HOME}/.liveactivities/config"
+  if [ -n "$LIVEACTIVITIES_TOKEN" ]; then
     echo "Hooky: Logged in"
-    if [ -n "$HOOKY_USER_ID" ]; then
-      echo "User ID: ${HOOKY_USER_ID:0:8}..."
+    if [ -n "$LIVEACTIVITIES_USER_ID" ]; then
+      echo "User ID: ${LIVEACTIVITIES_USER_ID:0:8}..."
     fi
-    if [ "${HOOKY_ENABLED:-true}" = "true" ]; then
+    if [ "${LIVEACTIVITIES_ENABLED:-true}" = "true" ]; then
       echo "Status: enabled"
     else
-      echo "Status: disabled (run /hooky:enable to turn on)"
+      echo "Status: disabled (run /liveactivities:enable to turn on)"
     fi
   else
     echo "Hooky: Not logged in"
-    echo "Run /hooky:login to connect"
+    echo "Run /liveactivities:login to connect"
   fi
 else
   echo "Hooky: Not logged in"
-  echo "Run /hooky:login to connect"
+  echo "Run /liveactivities:login to connect"
 fi
 ```
