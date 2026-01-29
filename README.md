@@ -1,4 +1,4 @@
-# Hooky - Claude Code Plugin
+# Live Activities - Claude Code Plugin
 
 iOS Live Activity notifications for Claude Code. Know when Claude needs you.
 
@@ -8,9 +8,9 @@ iOS Live Activity notifications for Claude Code. Know when Claude needs you.
   <img src="https://liveactivities.ai/screenshots/dynamic-island-compact-homescreen.png" width="250" />
 </p>
 
-## What is Hooky?
+## What is Live Activities?
 
-Hooky sends real-time updates to your iPhone when Claude Code:
+Live Activities sends real-time updates to your iPhone when Claude Code:
 - Starts or stops working
 - Needs your permission
 - Asks you a question
@@ -21,7 +21,7 @@ Updates appear on your **Lock Screen** and **Dynamic Island** via iOS Live Activ
 
 ## Prerequisites
 
-- **Hooky iOS app** - Download from the App Store
+- **Live Activities iOS app** - Download from the App Store
 - **Claude Code** - Version 1.0.0 or later
 - **macOS or Linux** - curl must be available
 
@@ -36,7 +36,7 @@ Install from the Claude Code plugin marketplace:
 
 ## Setup
 
-### 1. Login to Hooky
+### 1. Login to Live Activities
 
 In Claude Code, run:
 
@@ -44,11 +44,11 @@ In Claude Code, run:
 /liveactivities:login
 ```
 
-This will display a code. Enter it in the Hooky iOS app to link your device.
+This will display a code. Enter it in the Live Activities iOS app to link your device.
 
 ### 2. Start a Live Activity
 
-Open the Hooky iOS app and tap "Start Live Activity".
+Open the Live Activities iOS app and tap "Start Live Activity".
 
 ### 3. Use Claude Code
 
@@ -66,7 +66,7 @@ That's it! Your iPhone will now show Live Activity updates as you use Claude Cod
 
 ### Enabling/Disabling Hooks
 
-You can temporarily disable Hooky without logging out. This is useful when:
+You can temporarily disable Live Activities without logging out. This is useful when:
 - Working on multiple repos but only want notifications for some
 - Testing or debugging without constant notifications
 - Pausing notifications temporarily
@@ -82,14 +82,14 @@ You'll stay logged in, so you can quickly re-enable without scanning the QR code
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│ Claude Code │────▶│   Hooky     │────▶│   Hooky     │────▶│  iPhone     │
-│   (Hooks)   │     │   Plugin    │     │   Server    │     │ Live Activity│
+│ Claude Code │────▶│    Live     │────▶│    Live     │────▶│   iPhone    │
+│   (Hooks)   │     │  Activities │     │  Activities │     │Live Activity│
 └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
 ```
 
 1. **Claude Code** fires hook events during operation
-2. **Hooky Plugin** captures events and sends to server
-3. **Hooky Server** processes events and sends push notification
+2. **Live Activities Plugin** captures events and sends to server
+3. **Live Activities Server** processes events and sends push notification
 4. **iPhone** receives push and updates Live Activity
 
 ## Configuration
