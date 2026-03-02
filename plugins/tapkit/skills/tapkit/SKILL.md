@@ -48,6 +48,7 @@ Screenshots are resized so you see them at the same resolution as the coordinate
 ### Navigation
 - `open_app(app_name)` — Open any app by name (e.g. "Settings", "Safari", "Hinge")
 - `press_home` — Go to home screen
+- `escape` — Dismiss keyboards, alerts, popups, or go back in navigation
 - `spotlight(query?)` — Open Spotlight search, optionally type a query
 
 ### Touch Gestures
