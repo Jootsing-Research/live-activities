@@ -80,6 +80,7 @@ To **pass** on a profile:
 - **Text input** is at the bottom of the screen
 - Tap the input field, type with `type_text`, then tap the **send button** (arrow icon, right side of input)
 - You can also send GIFs, photos, and voice notes via icons near the input field
+- **To leave a conversation**: swipe right from the left edge of the screen (iOS back gesture) to return to the conversations list
 
 ## Profile Tab
 
